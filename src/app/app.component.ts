@@ -9,16 +9,17 @@ import { disconnect } from 'process';
   standalone: true,//angular 17 sonrası için varsayılan hale geldi.
   //standalone componentler herhangi bir module yapısına bağlı kalmadan var olabilirler.
   imports: [CommonModule, NavbarComponent,FooterComponent],//import edilecek modülleri ve angular yapılarını belirtir.
-  
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
 export class AppComponent {//değişkenler ve fonksiyonlar burada tanımlanır.
   title = 'Northwind Market';//state: angular state değerlerini tutar ve değer değişkenleri canlı olarak takip eder.
 
   cartCount : number = 0;//sepetteki ürün sayısını tutar.
 
   products : {name:string; price:number; discontinued:boolean}[]=[
+    //Ürün Listesi
     {
       name:"Çay",
       price:100,
@@ -47,9 +48,18 @@ export class AppComponent {//değişkenler ve fonksiyonlar burada tanımlanır.
 
   ]
   
-
   onAddProductToCart(): void{//sepete ürün ekleme işlemi.
     this.cartCount += 1 ;
     console.log("Ürün sepete eklendi.");
   }
 }
+
+// Angular 17 öncesinde varsayılan olarak componentler Module yapısında tanımlanıyorlardı.
+// Angular Module Örneği
+// @NgModule({
+//   declarations: [AppComponent], // Component, Directive ve Pipe'ları tanımlar.
+//   imports: [], // Dışarıdan alınan modülleri ekler.
+//   providers: [], // Servisleri ekler.
+//   bootstrap: [AppComponent], // Uygulamanın başlangıç componentini belirler.
+// })
+// export class AppModule {}
