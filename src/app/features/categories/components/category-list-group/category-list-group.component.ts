@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 import { CategoryListItem } from '../../models/category-list-item';
 import {
   ListGroupComponent,
@@ -17,6 +22,7 @@ import {
 })
 
 export class CategoryListGroupComponent {
+  @Output() changeSelect = new EventEmitter<number | null>();
   categoryList: CategoryListItem[] = [
     { id: 1, name: 'Beverages' },
     { id: 2, name: 'Canned Goods' },
@@ -27,9 +33,14 @@ export class CategoryListGroupComponent {
     { id: 7, name: 'Snacks' },
   ]; // Mock data
 
+  onChangeSelect(selectedItemId: string | null) {
+    this.changeSelect.emit(Number(selectedItemId));
+  }
+
   get categoryListGroupItems(): ListGroupItems {
     return this.categoryList.map((category) => {
       const categoryListItem: ListGroupItem = {
+        id: category.id.toString(),
         label: category.name,
       };
       return categoryListItem;
