@@ -2,6 +2,7 @@ import { BasicLayoutComponent } from '../../shared/components/basic-layout/basic
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CategoryListGroupComponent } from '../../features/categories/components/category-list-group/category-list-group.component';
 
 @Component({
   selector: 'app-home-page',
@@ -9,7 +10,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule,
-    BasicLayoutComponent
+    BasicLayoutComponent,
+    CategoryListGroupComponent
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
