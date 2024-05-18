@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 //component: angular tarafından bir görünüm ve işlev için küçük parçalardır.
 @Component({
   selector: 'app-root',//template içinde kullanılacak etiket.
   standalone: true,//angular 17 sonrası için varsayılan hale geldi.
   //standalone componentler herhangi bir module yapısına bağlı kalmadan var olabilirler.
-  imports: [CommonModule, NavbarComponent,FooterComponent],//import edilecek modülleri ve angular yapılarını belirtir.
+  imports: [CommonModule, RouterModule ,NavbarComponent,FooterComponent],//import edilecek modülleri ve angular yapılarını belirtir.
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
